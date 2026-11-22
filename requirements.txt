@@ -1,3 +1,13 @@
-gradio langchain langchain-community langchain-huggingface
-langchain-groq faiss-cpu unstructured python-docx docx2txt pypdf
-sentence-transformers datasets
+gradio
+langchain-core
+langchain-community
+langchain-huggingface
+langchain-groq
+langchain-text-splitters
+faiss-cpu
+sentence-transformers
+unstructured
+python-docx
+docx2txt
+pypdf
+pandas
