@@ -1,0 +1,15 @@
+{
+  "description": "Synthetic retrieval smoke-test examples only; not an independent benchmark.",
+  "passages": [
+    {"id": "p1", "text": "Project invoices are due within 30 days of receipt."},
+    {"id": "p2", "text": "The support team responds to urgent issues within one working day."},
+    {"id": "p3", "text": "Subscriptions can be canceled from the account settings page."},
+    {"id": "p4", "text": "The project warranty covers software defects for 90 days."}
+  ],
+  "questions": [
+    {"question": "When must project invoices be paid?", "relevant_passage_ids": ["p1"]},
+    {"question": "How quickly is urgent support handled?", "relevant_passage_ids": ["p2"]},
+    {"question": "Where can I cancel my subscription?", "relevant_passage_ids": ["p3"]},
+    {"question": "How long is the software warranty?", "relevant_passage_ids": ["p4"]}
+  ]
+}
