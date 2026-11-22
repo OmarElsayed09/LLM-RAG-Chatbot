@@ -1,15 +1,17 @@
-name: Python syntax checks
+name: Python syntax and RAG contract tests
 on:
   push:
     branches: [main]
   pull_request:
 jobs:
-  compile:
+  check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Check Python source syntax
-        run: python -m compileall -q app.py evaluation.py
+      - name: Compile Python source
+        run: python -m compileall -q app.py evaluation.py tests
+      - name: Check retrieval contracts
+        run: python -m unittest discover -s tests -p 'test_contracts.py' -v
