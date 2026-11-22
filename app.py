@@ -40,7 +40,8 @@ def process_file(file):
     if file is None:
         return "Upload a file first."
     try:
-        docs = load_document(file.name)
+        path = file if isinstance(file, (str, os.PathLike)) else file.name
+        docs = load_document(path)
         chunks = RecursiveCharacterTextSplitter(
             chunk_size=1000, chunk_overlap=200
         ).split_documents(docs)
