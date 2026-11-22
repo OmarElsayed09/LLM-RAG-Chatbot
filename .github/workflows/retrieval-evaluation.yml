@@ -1,0 +1,25 @@
+name: Reproducible local-embedding retrieval evaluation
+on:
+  workflow_dispatch:
+  pull_request:
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: requirements.txt
+      - name: Install minimal retrieval dependencies
+        run: |
+          python -m pip install "langchain-core>=0.3,<2" "langchain-community>=0.3,<1" "langchain-huggingface>=0.1,<2" "faiss-cpu>=1.9" "sentence-transformers>=3"
+      - name: Evaluate labeled synthetic retrieval smoke fixture
+        run: python evaluate_retrieval.py --dataset eval/sample_questions.json --output artifacts/retrieval-metrics.json --top-k 1
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: rag-retrieval-evaluation
+          path: artifacts/retrieval-metrics.json
