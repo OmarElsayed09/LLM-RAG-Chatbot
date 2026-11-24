@@ -50,3 +50,7 @@ The old evaluation button used unrelated placeholder ground truths and was **not
 ## Author
 
 [Omar Elsayed](https://github.com/OmarElsayed09) · [Portfolio](https://omar-elsayed-portfolio.vercel.app/)
+
+## Screenshot
+
+![Smart Document Assistant interface](docs/screenshot.png)
